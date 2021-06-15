@@ -1,2 +1,2 @@
 #!/bin/bash
-find -R -empty
+find . -empty
