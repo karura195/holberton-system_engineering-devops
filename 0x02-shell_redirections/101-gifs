@@ -1,2 +1,2 @@
 #!/bin/bash
-ls -1-Rla *.gif|rev|cut --complement -b -4|rev
+echo $(find . -name "*.gif" | cut -b 3- | rev | cut --complement -b -4 | rev)
