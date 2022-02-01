@@ -9,8 +9,8 @@ from sys import argv
 if __name__ == "__main__":
     employee_id = argv[1]
     url = 'https://jsonplaceholder.typicode.com/'
-    employee = requests.get('{}users?id={}'.format(url, user_id)).json()[0]
-    request = requests.get('{}todos?userId={}'.format(url, user_id)).json()
+    employee = requests.get('{}users?id={}'.format(url, employee_id)).json()[0]
+    request = requests.get('{}todos?userId={}'.format(url, employee_id)).json()
     name = employee.get('name')
     tasks = len(request)
     task_list = [todo.get("title") for todo in request
