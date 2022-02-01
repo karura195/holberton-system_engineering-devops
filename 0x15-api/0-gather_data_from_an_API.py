@@ -7,16 +7,17 @@ from sys import argv
 
 
 if __name__ == "__main__":
-    employee_id = argv[1]
+    user_id = argv[1]
     url = 'https://jsonplaceholder.typicode.com/'
-    employee = requests.get('{}users?id={}'.format(url, employee_id)).json()[0]
-    request = requests.get('{}todos?userId={}'.format(url, employee_id)).json()
-    name = employee.get('name')
+    # GET  METHOD
+    user = requests.get('{}users?id={}'.format(url, user_id)).json()[0]
+    request = requests.get('{}todos?userId={}'.format(url, user_id)).json()
+    name = user.get('name')
     tasks = len(request)
+    # Method : List Comprehension
     task_list = [todo.get("title") for todo in request
                  if todo.get('completed')]
     tasks_todo = len(task_list)
-    msg = "Employee {} is done with tasks({}/{}):"
-    print(msg.format(name, tasks_todo, tasks))
+    string = "Employee {} is done with tasks({}/{}):"
+    print(string.format(name, tasks_todo, tasks))
     [print("\t {}".format(i)) for i in task_list]
-
