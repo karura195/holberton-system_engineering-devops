@@ -7,7 +7,7 @@ from sys import argv
 
 
 if __name__ == "__main__":
-   r = requests.get('https://jsonplaceholder.typicode.com/users/{}'
+    r = requests.get('https://jsonplaceholder.typicode.com/users/{}'
                      .format(sys.argv[1]))
     d = r.json()
     name = d.get('name')
@@ -25,4 +25,4 @@ if __name__ == "__main__":
     print("Employee {} is done with tasks({}/{}):"
           .format(name, completed, tasks))
     for i in titles:
-        print('\t', i) 
+        print('\t', i)
